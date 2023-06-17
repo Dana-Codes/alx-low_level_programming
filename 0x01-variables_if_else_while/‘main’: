@@ -1,0 +1,7 @@
+2-print_alphabet.c:16:2: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+   16 |  for (low = 'a'; low <= 'z'; low++)
+         |  ^~~
+	 2-print_alphabet.c:18:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+	    18 |   putchar('\n');
+	          |   ^~~~~~~
+		  cc1: all warnings being treated as errors0;276;0c
