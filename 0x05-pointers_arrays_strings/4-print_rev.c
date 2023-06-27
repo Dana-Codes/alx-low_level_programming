@@ -9,10 +9,6 @@
  * Return: On success, returns the character written as an unsigned char cast to an int.
  *         On error, returns -1 and sets errno appropriately.
  */
-int _putchar(char c)
-{
-	return (_putchar(c));
-}
 
 /**
  * print_rev - Prints a string in reverse order followed by a new line.
