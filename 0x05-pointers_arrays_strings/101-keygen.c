@@ -2,23 +2,31 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 12
-
+/**
+ * main - generate random number
+ *
+ * Return: always 0
+ */
 int main(void)
 {
-	char password[PASSWORD_LENGTH + 1];
-	int i;
+	int pass[100];
+	int i, sum, n;
 
-	srand(time(0));
-	for (i = 0; i < PASSWORD_LENGTH; i++)
+	sum = 0;
+	srand(time(NULL));
+
+	for (i = 0; i < 100; i++)
 	{
-		/* Generate random lowercase letter or digit */
-		if (rand() % 2)
-			password[i] = 'a' + rand() % 26;
-		else
-			password[i] = '0' + rand() % 10;
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
+		{
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
+		}
 	}
-	password[PASSWORD_LENGTH] = '\0';
-	printf("%s", password);
 	return (0);
 }
