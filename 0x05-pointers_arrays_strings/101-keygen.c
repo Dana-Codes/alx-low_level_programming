@@ -14,16 +14,16 @@ int main(void)
 
     for (i = 0; i < PASSWORD_LENGTH; i++)
     {
-        /* Generate random uppercase letter or digit */
+        /* Generate random lowercase letter or digit */
         if (rand() % 2)
-            password[i] = 'A' + rand() % 26;
+            password[i] = 'a' + rand() % 26;
         else
             password[i] = '0' + rand() % 10;
     }
 
     password[PASSWORD_LENGTH] = '\0';
 
-    printf("%s\n", password);
+    printf("%s", password);
 
     return 0;
 }
