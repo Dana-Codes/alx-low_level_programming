@@ -2,48 +2,28 @@
 #include "main.h"
 
 /**
- * print_number - print an int numbers.
- * @n: number tested
+ * rot13 - encodes a string using the rot13 cipher
+ * @s: the string to encode
  *
- * Return: void
+ * Return: the encoded string
  */
-void print_number(int n)
+char *rot13(char *s)
 {
-	int i, j, digit, digits, power;
-	unsigned int temp, numchar, number;
+	int i, j;
+	char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	digit = 0;
-	if (n < 0)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		_putchar('-');
-		temp = -n;
-	}
-	else
-	{
-		temp = n;
+		for (j = 0; input[j] != '\0'; j++)
+		{
+			if (s[i] == input[j])
+			{
+				s[i] = output[j];
+				break;
+			}
+		}
 	}
 
-	number = temp;
-
-	while (number >= 10)
-	{
-		number = number / 10;
-		digit++;
-	}
-	digits = digit + 1;
-	power = 1;
-	i = 1;
-
-	while (i < digits)
-	{
-		power = power * 10;
-		i++;
-	}
-	j = power;
-	while (j >= 1)
-	{
-		numchar = (temp / j) % 10;
-		_putchar(numchar + '0');
-		j = j / 10;
-	}
+	return (s);
 }
