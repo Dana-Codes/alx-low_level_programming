@@ -1,29 +1,20 @@
 CC = gcc
-SRC = main.c school.c
+SRC = school.c main.c
 OBJ = $(SRC:.c=.o)
 NAME = school
-
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
 .PHONY: all clean oclean fclean re
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $@
-
-$(OBJ): %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all: m.h $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	-@/bin/rm -f *~ $(NAME)
+	$(RM) *~ $(NAME)
 
 oclean:
-	-@/bin/rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
-	-@/bin/rm -f $(NAME)
 
-re: fclean all
-
-ifeq (,$(wildcard m.h))
-$(error m.h not found)
-endif
+re: fclean all 
